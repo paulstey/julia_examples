@@ -269,6 +269,9 @@ d = load("myfile.jld")
 ---
 
 ### 5 Functions
+
+Julia has many elements of a functional language. Functions are first-class citizens, and can be created by other functions and passed as arguments. Also note that the common practice is to write functions that don't modify their arguments. If you do write a function that modifies its arguments in place, the convention is to add `!` to the function name
+### 5.1.1 Defining a function
 ```julia
 function addone(n)
     res = n + 1
@@ -276,9 +279,77 @@ function addone(n)
 end
 ```
 
++++
+
+```julia
+addone(n) = n + 1
+
+f(x) = 2x + π - 17
+```
+
 ---
 
-### Types
+### 5.1.2 Passing Functions as Arguments
+```julia
+map(addone, [1, 2, 3])
+```
+
+---
+
+
+## 5.2.1 Generic Programming and Adding Methods to Functions
+```julia
+function addtwo(x::Int)
+    res = x + 2
+    return res
+end
+```
+
++++
+
+```julia
+function addtwo(x::Array{Int, 1})
+    n = lenght(x)
+    y = zeros(Int, n)
+    for i = 1:n
+        y[i] = x[i] + 2
+    end
+    return y
+end
+```
+
+
+
+
+---
+
+## 6 Types
 Julia has a very powerful type system, which allows you to construct your own types which will behave exactly like native types (e.g., Int, String) in terms of performance.
 
 ---
+
+### 6.1.1 Defining Composite Types
+We define types using the `type` keyword, and then list the components of that type.
+
+```julia
+type Person
+    age
+    sex
+    height
+    weight
+end
+joe = Person(27, "male", 6.0, 170)
+```
+
++++
+
+But we can do better. If we define the type and give the components themselves explicit types, the compiler will generate more efficient code.
+
+```julia
+type Person
+    age::Int
+    sex::String
+    height::Float64
+    weight::Int
+end
+```
