@@ -70,13 +70,14 @@ push!(a, 1000)
 append!(a, [4, 8, 15, 16, 23, 42])  # append new vector to tail
 ```
 
+---
 
 ### 2.1.2 Types Matter
 Julia has a very explicit type system (more on this later), so some caution is required
 ```julia
 v = [4, 5, 6]
 
-push!(v, 3.14)          # Fails (Matlab casts all elements)
+push!(v, 3.14)     # Fails (Matlab casts all elements)
 ```
 
 ---
@@ -100,6 +101,8 @@ x3 = falses(5)
 x4 = trues(4)
 ```
 
+---
+
 ### 2.1.4 Indexing a Vector
 - Identical to R's behavior
 - Nearly identical to Matlab, but use `[` instead of `(`
@@ -111,4 +114,25 @@ s = ["this", "is", "a string vector"]
 s[2]                # gets second element
 
 s[3] = "shoe"       # set third element to "shoe"
+
+s[end]              # gets last element
+
+s[end - 1]          # gets 2nd to last element
 ```
+
++++
+
+Can also index with boolean values
+
+```julia
+v1 = [4, 5, 6]
+
+v[[true, false, true]]      # gets first and third element
+```
+
++++
+
+This has advantages for doing comparisons
+```julia
+v2 = [5, 6, 7, 8]
+keep_indcs =
