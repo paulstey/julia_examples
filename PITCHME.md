@@ -22,7 +22,7 @@ There are at least 4 ways of using Julia
     * Support for Markdown and LaTeX
     * All the advantages of Jupyter
 
-
+---
 
 ## 2 Vectors Matrices and N-Dimensional Arrays
 - All of these are native to Julia
@@ -67,7 +67,7 @@ push!(a, 999)
 
 push!(a, 1000)
 
-append!(a, [4, 8, 15, 16, 23, 42])  # append new vector to tail
+append!(a, [4, 8, 15, 16, 23, 42])  # appends vector to tail
 ```
 
 ---
@@ -87,7 +87,7 @@ push!(v, 3.14)     # Fails (Matlab casts all elements)
 - Has performance implications
 - Growing a vector in place is usually 2 operations versus 1 for assignment only
 - Also has the advantage of forcing you to think more about your code
-    * In a sense, it's self documenting your code
+    * In a sense, it's self-documenting code
 
 +++
 
@@ -135,4 +135,8 @@ v[[true, false, true]]      # gets first and third element
 This has advantages for doing comparisons
 ```julia
 v2 = [5, 6, 7, 8]
-keep_indcs =
+
+keep_elem = v2 .> 6
+
+v2[keep_elem]               # returns [7, 8]
+```
