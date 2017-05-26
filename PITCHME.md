@@ -171,7 +171,7 @@ x1 = [4, 5, 6]
 
 x2 = [55, 66, 77]
 
-x3 = [x1; x2]               
+x3 = [x1; x2]
 
 x3b = vcat(x1, x2)          # same as above
 ```
@@ -269,3 +269,16 @@ d = load("myfile.jld")
 ---
 
 ### 5 Functions
+```julia
+function addone(n)
+    res = n + 1
+    return res
+end
+```
+
+---
+
+### Types
+Julia has a very powerful type system, which allows you to construct your own types which will behave exactly like native types (e.g., Int, String) in terms of performance.
+
+---
