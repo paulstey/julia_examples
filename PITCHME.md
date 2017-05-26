@@ -276,6 +276,7 @@ Julia has many elements of a functional language. Functions are first-class citi
 
 ### 5.1.1 Defining a function
 ```julia
+
 function addone(n)
     res = n + 1
     return res
