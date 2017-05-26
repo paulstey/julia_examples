@@ -24,7 +24,7 @@ There are at least 4 ways of using Julia
 
 ---
 
-## 2 Vectors Matrices and N-Dimensional Arrays
+## 2 Vectors (1-D `Array`s)
 - All of these are native to Julia
 - Behave much like their counterparts in Python (NumPy), R, and Matlab
 
@@ -67,7 +67,7 @@ push!(a, 999)
 
 push!(a, 1000)
 
-append!(a, [4, 8, 15, 16, 23, 42])  # appends vector to tail
+append!(a, [4, 8, 15])  # appends vector to tail
 ```
 
 ---
@@ -132,11 +132,127 @@ v[[true, false, true]]      # gets first and third element
 
 +++
 
-This has advantages for doing comparisons
+This has advantages for doing equality and inequality comparisons
 ```julia
 v2 = [5, 6, 7, 8]
 
 keep_elem = v2 .> 6
 
 v2[keep_elem]               # returns [7, 8]
+```
+
+---
+
+### 2.1.5 Slicing and Subsetting Vectors
+```julia
+v = [5, 6, 7, 8]
+
+v[1:2]              # gets first 2 elements
+
+v[3:end]            # gets elements 3 and 4
+```
+
++++
+
+```julia
+x = ["dog", "cat", "bird", "potato"]
+
+animal_indcs = [1, 2, 3]
+
+animals = x[animal_indcs]
+```
+
+### 2.1.6 Concatenating Vectors
+```julia
+x1 = [4, 5, 6]
+
+x2 = [55, 66, 77]
+
+x3 = [x1; x2]               # x3 is concatenation of x1 and x2
+
+x3b = vcat(x1, x2)          # exactly the same as above
+```
+
+### 2.2.1 Element-Wise Operations
+Element-wise operations in Julia are performed using the `.` operator, which is often called the "broadcasting" operator.
+
+```julia
+a = [3, 4, 3, 6]
+
+a .== 3             # returns [true, false, true, false]
+
+a .> 4              # return [false, false, false, true]
+```
+
+
+## 3 Matrices (2-D `Array`s)
+Matrices in Julia are just 2-dimensional arrays, and have many of the same behaviors as vectors (i.e., 1-dimensional arrays)
+```julia
+a = zeros(5, 3)              # 5-by-3 matrix
+
+a2 = Array{Float64}(5, 3)    # same as above
+
+b = [2 3 4;
+     5 6 7;
+     4 9 1]                  # semi-colon denotes end of row  
+```
+
+---
+
+### 3.1.1 Indexing and Slicing Matrices
+```julia
+a = randn(3, 3)       # matrix of random values from standard normal dist'n
+
+a[3, 1]               # gets element in third row first column
+
+a[2, :]               # gets all of second row
+
+a[:, 1]               # gets all of first column
+
+a[:, 2] = 999.0       # assigns 999 to all of 2nd column
+```
+
+---
+
+## 4 Reading and Writing Data to Files
+The `readdlm()` and `writedlm()` function are used for reading and writing plain-text files in a delimited format. They are easy to use and flexible.
+
+
+### 4.1.1 Using `readdlm()` and `writedlm()` for Plaintext
+```julia
+a = randn(100, 100)
+
+writedlm("gaussian_mat.csv", a, ',')
+
+a2 = readdlm("gaussian_mat.csv", ',')
+```
+
+---
+
+### 4.1.2 JLD.jl Package for Binary Data Format
+The JLD package can be used for saving objects from your Julia session in to binary objects, similar to HDF5.
+```julia
+
+using JLD
+
+a = rand(10, 10)
+
+b = [1,3]
+
+save("myfile.jld", "a_mat", a)
+
+d = load("myfile.jld")
+```
+
++++
+
+The JLD package can also save multiple objects in one call to `save()`
+```julia
+a = rand(10, 10)
+
+b = [1,3]
+
+save("myfile.jld", "a_mat", a, "b_vec", b)
+
+d = load("myfile.jld")
 ```
