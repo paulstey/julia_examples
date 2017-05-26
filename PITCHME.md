@@ -10,7 +10,7 @@
     * Int, Float64, String
     * Array, Dict, Function
     * user-defined types
-
+---
 Consider some simple vector objects:
 ```Julia
 v = [4, 5, 6]
@@ -29,7 +29,7 @@ a2 = Vector{Int}()      # identical to above
 
 a3 = Array{Int, 1}()    # also identical
 ```
-
+---
 ### 1.1.2 Growing a vector "in place"
 ```julia
 push!(a, 999)
