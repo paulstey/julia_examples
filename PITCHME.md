@@ -161,6 +161,8 @@ animal_indcs = [1, 2, 3]
 
 animals = x[animal_indcs]
 ```
+---
+
 
 ### 2.1.6 Concatenating Vectors
 ```julia
@@ -173,6 +175,9 @@ x3 = [x1; x2]               # x3 is concatenation of x1 and x2
 x3b = vcat(x1, x2)          # exactly the same as above
 ```
 
+---
+
+
 ### 2.2.1 Element-Wise Operations
 Element-wise operations in Julia are performed using the `.` operator, which is often called the "broadcasting" operator.
 
@@ -184,6 +189,7 @@ a .== 3             # returns [true, false, true, false]
 a .> 4              # return [false, false, false, true]
 ```
 
+---
 
 ## 3 Matrices (2-D `Array`s)
 Matrices in Julia are just 2-dimensional arrays, and have many of the same behaviors as vectors (i.e., 1-dimensional arrays)
