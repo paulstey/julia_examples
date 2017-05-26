@@ -161,6 +161,7 @@ animal_indcs = [1, 2, 3]
 
 animals = x[animal_indcs]
 ```
+
 ---
 
 
@@ -264,3 +265,5 @@ d = load("myfile.jld")
 ```
 
 ---
+
+### 5 Functions
