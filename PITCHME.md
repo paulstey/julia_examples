@@ -185,9 +185,9 @@ Element-wise operations in Julia are performed using the `.` operator, which is 
 ```julia
 a = [3, 4, 3, 6]
 
-a .== 3       # [true, false, true, false]
+a .== 3
 
-a .> 4        # [false, false, false, true]
+a .> 4
 ```
 
 ---
