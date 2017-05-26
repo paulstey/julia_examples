@@ -271,6 +271,9 @@ d = load("myfile.jld")
 ### 5 Functions
 
 Julia has many elements of a functional language. Functions are first-class citizens, and can be created by other functions and passed as arguments. Also note that the common practice is to write functions that don't modify their arguments. If you do write a function that modifies its arguments in place, the convention is to add `!` to the function name
+
+---
+
 ### 5.1.1 Defining a function
 ```julia
 function addone(n)
