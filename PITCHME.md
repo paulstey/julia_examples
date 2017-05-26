@@ -4,7 +4,7 @@
 
 ---
 ### 1.1 Vectors
-- Vectors in Julia are 1-dimensional Arrays
+- Vectors just are 1-dimensional Arrays
 - Arrays are simply containers
 - Therefore, vectors (and arrays) can store any type of object; for example:
     * Int, Float64, String
