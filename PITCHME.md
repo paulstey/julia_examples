@@ -171,9 +171,9 @@ x1 = [4, 5, 6]
 
 x2 = [55, 66, 77]
 
-x3 = [x1; x2]               # x3 is concatenation of x1 and x2
+x3 = [x1; x2]               
 
-x3b = vcat(x1, x2)          # exactly the same as above
+x3b = vcat(x1, x2)          # same as above
 ```
 
 ---
@@ -185,9 +185,9 @@ Element-wise operations in Julia are performed using the `.` operator, which is 
 ```julia
 a = [3, 4, 3, 6]
 
-a .== 3             # returns [true, false, true, false]
+a .== 3       # returns [true, false, true, false]
 
-a .> 4              # return [false, false, false, true]
+a .> 4        # returns [false, false, false, true]
 ```
 
 ---
@@ -208,7 +208,7 @@ b = [2 3 4;
 
 ### 3.1.1 Indexing and Slicing Matrices
 ```julia
-a = randn(3, 3)       # matrix of random values from standard normal dist'n
+a = randn(3, 3)       # matrix of random values from N(0, 1)
 
 a[3, 1]               # gets element in third row first column
 
@@ -223,6 +223,8 @@ a[:, 2] = 999.0       # assigns 999 to all of 2nd column
 
 ## 4 Reading and Writing Data to Files
 The `readdlm()` and `writedlm()` function are used for reading and writing plain-text files in a delimited format. They are easy to use and flexible.
+
+---
 
 
 ### 4.1.1 Using `readdlm()` and `writedlm()` for Plaintext
